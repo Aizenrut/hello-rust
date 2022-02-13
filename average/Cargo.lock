@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "vector"
+name = "average"
 version = "0.1.0"
