@@ -23,7 +23,7 @@ fn main() {
 
         let message = input.trim();
 
-        if message.eq("exit") {
+        if message.eq("done") {
             break;
         }
 
@@ -60,10 +60,10 @@ fn main() {
 
     println!();
     
-    for (dep, employees) in &map {
+    for (dep, employees) in &mut map {
         println!("{}:", dep);
 
-        // TODO: employees.sort()
+        employees.sort();
 
         for name in employees {
             println!("\t{}", name);
