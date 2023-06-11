@@ -1,4 +1,4 @@
-use std::sync::{Arc, mpsc, Mutex};
+use std::sync::{mpsc, Arc, Mutex};
 use std::thread;
 use std::time::Duration;
 
@@ -37,7 +37,7 @@ fn messages() {
             String::from("hi"),
             String::from("from"),
             String::from("the"),
-            String::from("thread")
+            String::from("thread"),
         ];
 
         for val in vals {
@@ -51,7 +51,7 @@ fn messages() {
             String::from("more"),
             String::from("messages"),
             String::from("for"),
-            String::from("you")
+            String::from("you"),
         ];
 
         for val in vals {
@@ -74,7 +74,7 @@ fn mutex() {
 
         let handle = thread::spawn(move || {
             let mut num = counter.lock().unwrap();
-            
+
             *num += 1;
         });
 

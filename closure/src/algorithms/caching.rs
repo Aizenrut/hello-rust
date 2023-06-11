@@ -1,23 +1,25 @@
-use std::collections::HashMap;
 use std::cmp::Eq;
+use std::collections::HashMap;
 use std::hash::Hash;
 
-pub struct Cacher<T, K, V> where T: FnMut(K) -> V {
+pub struct Cacher<T, K, V>
+where
+    T: FnMut(K) -> V,
+{
     calculation: T,
-    map: HashMap<K, V>
+    map: HashMap<K, V>,
 }
 
 impl<T, K, V> Cacher<T, K, V>
 where
     T: FnMut(K) -> V,
     K: Eq + Hash + Copy,
-    V: Copy
+    V: Copy,
 {
-
     pub fn new(calculation: T) -> Cacher<T, K, V> {
         Cacher {
             calculation,
-            map: HashMap::new()
+            map: HashMap::new(),
         }
     }
 
@@ -34,7 +36,7 @@ where
 }
 
 #[cfg(test)]
-pub mod tests{
+pub mod tests {
 
     use super::*;
 

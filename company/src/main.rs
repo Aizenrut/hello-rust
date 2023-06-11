@@ -3,7 +3,7 @@ use std::io;
 
 fn main() {
     println!("Add <employee> to <department>");
-    
+
     let mut map = HashMap::new();
 
     loop {
@@ -59,7 +59,7 @@ fn main() {
     }
 
     println!();
-    
+
     for (dep, employees) in &mut map {
         println!("{}:", dep);
 

@@ -9,7 +9,7 @@ fn main() {
 
     post.approve();
     println!("Pending Second Review post content: {}", post.content());
-    
+
     post.approve();
     println!("Published post content: {}", post.content());
 
@@ -19,14 +19,14 @@ fn main() {
 
 pub struct Post {
     state: Option<Box<dyn State>>,
-    content: String
+    content: String,
 }
 
 impl Post {
     pub fn new() -> Post {
         Post {
             state: Some(Box::new(Draft {})),
-            content: String::new()
+            content: String::new(),
         }
     }
 

@@ -1,6 +1,11 @@
 fn main() {
     let tweet = get_summaryable();
-    let article = NewsArticle::new(String::from("Igor"), String::from("Rust"), 2022, String::from("Learning Rust"));
+    let article = NewsArticle::new(
+        String::from("Igor"),
+        String::from("Rust"),
+        2022,
+        String::from("Learning Rust"),
+    );
 
     println!("Tweet: {}", tweet.summarize());
     println!("NewsArticle: {}", article.summarize());
@@ -16,15 +21,12 @@ pub trait Summary {
 
 pub struct Tweet {
     user: String,
-    text: String
+    text: String,
 }
 
 impl Tweet {
     fn new(user: String, text: String) -> Tweet {
-        Tweet {
-            user,
-            text
-        }
+        Tweet { user, text }
     }
 }
 
@@ -34,12 +36,11 @@ impl Summary for Tweet {
     }
 }
 
-
 pub struct NewsArticle {
     author: String,
     title: String,
     year: i16,
-    text: String
+    text: String,
 }
 
 impl NewsArticle {
@@ -48,7 +49,7 @@ impl NewsArticle {
             author,
             title,
             year,
-            text
+            text,
         }
     }
 }

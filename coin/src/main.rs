@@ -6,7 +6,7 @@ enum UsState {
     Alaska,
     California,
     NewYork,
-    Utah
+    Utah,
 }
 
 #[derive(Debug)]
@@ -34,7 +34,7 @@ fn main() {
                     2 => Some(UsState::California),
                     3 => Some(UsState::NewYork),
                     4 => Some(UsState::Utah),
-                    _ => None
+                    _ => None,
                 };
 
                 let c = if let Some(s) = state {
@@ -44,14 +44,14 @@ fn main() {
                 };
 
                 c
-            },
-            _ => None
+            }
+            _ => None,
         };
 
         match coin {
             Some(Coin::Quarter(state)) => println!("State quarter from {:?}", state),
             Some(c) => println!("{:?}", c),
-            None => println!("None")
+            None => println!("None"),
         };
     }
 }

@@ -1,5 +1,5 @@
 //! Art
-//! 
+//!
 //! A library for modeling artistic concepts.
 
 pub use self::kinds::PrimaryColors;
@@ -8,21 +8,19 @@ pub use self::utils::mix;
 
 pub mod kinds {
     /// The primary colors according to the RYB color model.
-    #[derive(Debug)]
-    #[derive(PartialEq)]
+    #[derive(Debug, PartialEq)]
     pub enum PrimaryColors {
         Red,
         Yellow,
-        Blue
+        Blue,
     }
 
     /// The secundary colors according to the RYB color model.
-    #[derive(Debug)]
-    #[derive(PartialEq)]
+    #[derive(Debug, PartialEq)]
     pub enum SecundaryColors {
         Green,
         Orange,
-        Purple
+        Purple,
     }
 }
 
@@ -31,14 +29,14 @@ pub mod utils {
 
     /// Combines two primary colors in equal amounts to create
     /// a secondary color.
-    /// 
+    ///
     /// # Examples
-    /// 
+    ///
     /// ```
     /// let c1 = art::PrimaryColors::Blue;
     /// let c2 = art::PrimaryColors::Yellow;
     /// let mixture = art::mix(c1, c2);
-    /// 
+    ///
     /// assert_eq!(art::SecundaryColors::Green, mixture);
     /// ```
     pub fn mix(c1: PrimaryColors, c2: PrimaryColors) -> SecundaryColors {

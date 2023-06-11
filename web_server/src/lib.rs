@@ -1,22 +1,22 @@
 use std::{
     sync::{mpsc, Arc, Mutex},
-    thread
+    thread,
 };
 
 type Job = Box<dyn FnOnce() + Send + 'static>;
 
 pub struct ThreadPool {
     workers: Vec<Worker>,
-    sender: Option<mpsc::Sender<Job>>
+    sender: Option<mpsc::Sender<Job>>,
 }
 
 impl ThreadPool {
     /// Creates a new ThreadPool
-    /// 
+    ///
     /// The `size` is the number of threads in the pool.
-    /// 
+    ///
     /// # Panics
-    /// 
+    ///
     /// The `new` function will panic if the size is zero.
     pub fn new(size: usize) -> ThreadPool {
         assert!(size > 0);
@@ -30,12 +30,15 @@ impl ThreadPool {
             workers.push(Worker::new(id, Arc::clone(&receiver)));
         }
 
-        ThreadPool { workers, sender: Some(sender) }
+        ThreadPool {
+            workers,
+            sender: Some(sender),
+        }
     }
 
     pub fn execute<F>(&self, f: F)
-    where 
-        F: FnOnce() + Send + 'static
+    where
+        F: FnOnce() + Send + 'static,
     {
         let job = Box::new(f);
 
@@ -59,7 +62,7 @@ impl Drop for ThreadPool {
 
 struct Worker {
     id: usize,
-    thread: Option<thread::JoinHandle<()>>
+    thread: Option<thread::JoinHandle<()>>,
 }
 
 impl Worker {
@@ -70,7 +73,7 @@ impl Worker {
             match message {
                 Ok(job) => {
                     println!("Worker {id} got a job; executing.");
-        
+
                     job();
                 }
                 Err(_) => {
@@ -80,6 +83,9 @@ impl Worker {
             }
         });
 
-        Worker { id, thread: Some(thread) }
+        Worker {
+            id,
+            thread: Some(thread),
+        }
     }
 }

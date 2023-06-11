@@ -8,9 +8,8 @@ pub fn eat_at_restaurant(apt: Appetizer) {
     breakfast.toast = String::from("Wheat");
     println!("I'd like {} toast please", breakfast.toast);
     let order = apt;
-
 }
 
-pub fn add_to_waitlist() { }
+pub fn add_to_waitlist() {}
 
-fn seat_at_table() { }
+fn seat_at_table() {}

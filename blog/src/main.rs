@@ -11,20 +11,20 @@ fn main() {
 }
 
 struct Post {
-    content: String
+    content: String,
 }
 struct DraftPost {
-   content: String
+    content: String,
 }
 
 struct PendingReviewPost {
-    content: String
+    content: String,
 }
 
 impl Post {
     fn new() -> DraftPost {
         DraftPost {
-             content: String::new()
+            content: String::new(),
         }
     }
 
@@ -39,8 +39,8 @@ impl DraftPost {
     }
 
     fn request_review(self) -> PendingReviewPost {
-        PendingReviewPost { 
-            content: self.content
+        PendingReviewPost {
+            content: self.content,
         }
     }
 }
@@ -48,7 +48,7 @@ impl DraftPost {
 impl PendingReviewPost {
     fn approve(self) -> Post {
         Post {
-            content: self.content
+            content: self.content,
         }
     }
 }

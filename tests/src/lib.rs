@@ -4,7 +4,7 @@ fn add_3(value: i32) -> i32 {
 
 pub struct Rectangle {
     pub width: u32,
-    pub height: u32
+    pub height: u32,
 }
 
 impl Rectangle {
@@ -14,7 +14,7 @@ impl Rectangle {
 }
 
 pub struct Guess {
-    pub value: i32
+    pub value: i32,
 }
 
 impl Guess {
@@ -24,10 +24,8 @@ impl Guess {
         } else if value > 100 {
             panic!("Value must be smaller or equal than 100");
         }
-        
-        Guess {
-            value
-        }
+
+        Guess { value }
     }
 }
 
@@ -40,19 +38,23 @@ mod tests {
     fn it_adds_3() {
         let addition = add_3(3);
 
-        assert_eq!(6, addition, "Addition of 3 + 3 didn't result in 6. Result: {}", addition);
+        assert_eq!(
+            6, addition,
+            "Addition of 3 + 3 didn't result in 6. Result: {}",
+            addition
+        );
     }
 
     #[test]
     fn larger_can_hold_smaller() {
         let larger = Rectangle {
             width: 20,
-            height: 10
+            height: 10,
         };
 
         let smaller = Rectangle {
             width: 10,
-            height: 5
+            height: 5,
         };
 
         assert!(larger.can_hold(&smaller));
@@ -62,12 +64,12 @@ mod tests {
     fn smaller_cannot_hold_larger() {
         let larger = Rectangle {
             width: 20,
-            height: 10
+            height: 10,
         };
 
         let smaller = Rectangle {
             width: 10,
-            height: 5
+            height: 5,
         };
 
         assert!(!smaller.can_hold(&larger));

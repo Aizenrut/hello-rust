@@ -1,12 +1,11 @@
 use std::io;
 
 fn main() {
-
     let vowels = vec!['a', 'e', 'i', 'o', 'u'];
 
     println!("Enter a sentence: ");
     let mut sentence = String::new();
-    
+
     loop {
         match io::stdin().read_line(&mut sentence) {
             Ok(_) => break,
@@ -32,8 +31,8 @@ fn main() {
                     let ord = chars.as_str();
                     result.push_str(&format!("{}-{}ay ", ord, c)[..]);
                 }
-            },
-            None => continue
+            }
+            None => continue,
         }
     }
 

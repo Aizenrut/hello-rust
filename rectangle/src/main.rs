@@ -1,6 +1,6 @@
 struct Rectangle {
     width: u32,
-    height: u32
+    height: u32,
 }
 
 impl Rectangle {
@@ -11,7 +11,7 @@ impl Rectangle {
     fn height(&self) -> bool {
         self.height > 0
     }
-    
+
     fn area(&self) -> u32 {
         self.width * self.height
     }
@@ -25,7 +25,7 @@ impl Rectangle {
     fn square(size: u32) -> Rectangle {
         Rectangle {
             width: size,
-            height: size
+            height: size,
         }
     }
 }
@@ -33,23 +33,23 @@ impl Rectangle {
 fn main() {
     let rect1 = Rectangle {
         width: 30,
-        height: 50
+        height: 50,
     };
 
     println!(
         "The area of the rectangle is {} square pixels.",
-         rect1.area()
+        rect1.area()
     );
 
     let rect2 = Rectangle {
         width: 20,
-        height: 40
+        height: 40,
     };
 
     if rect2.width() {
         println!("The rectangle has a nonzero width; it is {}", rect2.width);
     }
-    
+
     if rect2.height() {
         println!("The rectangle has a nonzero height; it is {}", rect2.height);
     }

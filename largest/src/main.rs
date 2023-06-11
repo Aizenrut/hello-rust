@@ -25,7 +25,7 @@ fn largest<T: PartialOrd + Copy>(items: &[T]) -> T {
             largest = item;
         }
     }
-    
+
     largest
 }
 
@@ -37,6 +37,6 @@ fn largest_ref<T: PartialOrd>(items: &[T]) -> &T {
             largest = item;
         }
     }
-    
+
     largest
 }
